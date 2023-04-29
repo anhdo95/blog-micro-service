@@ -1,0 +1,52 @@
+version: '3'
+
+services:
+  posts_service:
+    image: mcs/posts
+    build:
+      context: ./posts
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+
+  comments_service:
+    image: mcs/comments
+    build:
+      context: ./comments
+      dockerfile: Dockerfile
+    ports:
+      - "4001:4001"
+
+  query_service:
+    image: mcs/query
+    build:
+      context: ./query
+      dockerfile: Dockerfile
+    ports:
+      - "4002:4002"
+
+  moderation_service:
+    image: mcs/moderation
+    build:
+      context: ./moderation
+      dockerfile: Dockerfile
+    ports:
+      - "4003:4003"
+
+  event_bus:
+    image: mcs/event-bus
+    build:
+      context: ./event-bus
+      dockerfile: Dockerfile
+    ports:
+      - "4005:4005"
+
+  client:
+    image: mcs/client
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+
+  
